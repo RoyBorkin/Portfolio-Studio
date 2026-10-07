@@ -1,0 +1,26 @@
+/*! Portfolio Studio. Copyright (c) 2026 Roy Borkin. All rights reserved. Unauthorized copying, modification or distribution is prohibited without written permission. */
+import vision from './vision.js';
+import poster from './poster.js';
+import nexus from './nexus.js';
+import runway from './runway.js';
+import lab from './lab.js';
+import bento from './bento.js';
+import traverse from './traverse.js';
+import museum from './museum.js';
+import forge from './forge.js';
+import terminal from './terminal.js';
+import blueprint from './blueprint.js';
+import classic from './classic.js';
+import cyber from './cyber.js';
+import glass from './glass.js';
+import gravity from './gravity.js';
+import folio from './folio.js';
+import marquee from './marquee.js';
+import aura from './aura.js';
+import atelier from './atelier.js';
+import deck from './deck.js';
+import plus from './plus.js';
+import kinetic from './kinetic.js';
+import frost from './frost.js';
+export const TEMPLATES = [vision, poster, nexus, runway, lab, bento, traverse, museum, forge, terminal, blueprint, classic, cyber, glass, gravity, folio, marquee, aura, atelier, deck, plus, kinetic, frost];
+export const SOURCE = { vision: 'Based on your “template 1” folder', poster: 'Based on your “template 2” folder', nexus: 'Based on your “template 3” folder', runway: 'Based on your “template 4” folder', lab: 'Based on your “template 5” folder', bento: 'Based on your “template 6” folder', traverse: 'Based on your “template 7” folder', museum: 'Based on your “template 8” folder', forge: 'Original design', terminal: 'Original design', blueprint: 'Original design', classic: 'Your current site, improved', cyber: 'Cyberpunk', glass: 'Liquid glass', gravity: 'Original design', folio: 'Original design', marquee: 'Inspired by dennissnellenberg.com', aura: 'Inspired by monopo.london', atelier: 'Inspired by makebeautifulwork.com', deck: 'Inspired by lamalama.com', plus: 'Inspired by itsoffbrand.com', kinetic: 'Inspired by lusion.co', frost: 'Inspired by igloo.inc' };

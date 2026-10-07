@@ -1,0 +1,23 @@
+Copyright (c) 2026 Roy Borkin. All rights reserved.
+
+Portfolio Studio, including its source code, templates, designs, documentation and
+screenshots, is the property of Roy Borkin.
+
+No permission is granted to copy, modify, merge, publish, distribute, sublicense or
+sell copies of this software or its parts, in whole or in part, without prior written
+permission from the copyright holder.
+
+Websites you export with Portfolio Studio: your own content (text, images, posts and
+other material you add) remains yours. The bundled site code (engine and template
+files) remains Copyright (c) 2026 Roy Borkin and may be used only as part of the
+website it was exported for.
+
+Third-party components keep their own licenses: React and ReactDOM (MIT), JSZip
+(MIT or GPLv3), esbuild (MIT), and fonts served by Google Fonts (SIL Open Font
+License or Apache 2.0).
+
+For permissions, contact: royborkin@gmail.com
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED.
+IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY ARISING FROM THE USE OF THE SOFTWARE.

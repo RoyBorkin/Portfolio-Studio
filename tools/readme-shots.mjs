@@ -1,0 +1,36 @@
+/*! Portfolio Studio. Copyright (c) 2026 Roy Borkin. All rights reserved. Unauthorized copying, modification or distribution is prohibited without written permission. */
+// Screenshots for the GitHub README: node tools/readme-shots.mjs <outDir>
+import { chromium } from '/home/claude/.npm-global/lib/node_modules/playwright/index.mjs';
+const out = process.argv[2];
+const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' });
+const p = await b.newPage({ viewport: { width: 1600, height: 960 }, deviceScaleFactor: 1 });
+p.on('pageerror', (e) => console.log('ERR', e.message));
+const shot = async (n, wait = 1200) => { await p.waitForTimeout(wait); await p.screenshot({ path: `${out}/${n}.png` }); console.log(n); };
+const panel = async (n) => { await p.click(`.rail button:has-text("${n}")`); await p.waitForTimeout(700); };
+await p.goto('file:///home/claude/pb/dist/index.html'); await p.waitForTimeout(3500);
+await shot('01-templates', 2500);
+await panel('Profile'); await shot('02-profile');
+const grp = async (t) => p.evaluate((t) => { const h = [...document.querySelectorAll('.grp-t')].find((x) => x.textContent.trim() === t); h?.scrollIntoView({ block: 'start' }); }, t);
+await panel('My Works'); await grp('LinkedIn posts'); await shot('03-linkedin');
+await grp('Instagram profile and automatic posts'); await p.locator('.seg button:has-text("Automatic")').first().click(); await shot('04-instagram');
+await p.locator('.seg button:has-text("Manual only")').first().click();
+await panel('Design'); await p.click('.secbar button:has-text("Main")'); await shot('05-design', 2000);
+await p.locator('.curgrid').scrollIntoViewIfNeeded(); await p.click('.curc:has-text("Target brackets")');
+const box = await p.locator('.stage iframe').boundingBox();
+const btn = await p.frameLocator('.stage iframe').locator('.pf-sec.is-on .pf-btn, .pf-sec.is-on button[data-go]').first().boundingBox().catch(() => null);
+await p.mouse.move(box.x + 300, box.y + 300); await p.mouse.move(btn ? btn.x + btn.width / 2 : box.x + box.width * 0.52, btn ? btn.y + btn.height / 2 : box.y + box.height * 0.6, { steps: 10 }); await shot('06-cursor', 1500);
+await p.click('.curc:has-text("Template")');
+await panel('Layout');
+await p.click('.mix-h:has-text("Background")'); await p.click('.mix.open .mix-t:has-text("Frost")'); await p.click('.mix-h:has-text("Background")');
+await p.click('.mix-h:has-text("Menu")'); await p.click('.mix.open .mix-t:has-text("Kinetic")');
+await p.waitForTimeout(2500); await p.click('.secbar button:has-text("Main")'); await shot('07-mix', 3000);
+await p.click('.mix-h:has-text("Menu")');
+await p.locator('button:has-text("Edit on canvas")').click(); await p.waitForTimeout(1500);
+await p.locator('.el-t:has-text("Name")').first().click(); await shot('08-canvas-edit', 1800);
+await p.locator('button:has-text("Editing on canvas")').click();
+await p.click('.mix-h:has-text("Background")'); await p.click('.mix.open .mix-t:has-text("Classic+")'); await p.click('.mix-h:has-text("Background")');
+await p.click('.mix-h:has-text("Menu")'); await p.click('.mix.open .mix-t:has-text("Classic+")'); await p.click('.mix-h:has-text("Menu")');
+await p.click('.devs button:has-text("Phone")'); await shot('09-phone', 3000);
+await p.click('.devs button:has-text("Desktop")');
+await p.keyboard.press('Shift+Slash'); await shot('10-guide', 800); await p.keyboard.press('Escape');
+await b.close();

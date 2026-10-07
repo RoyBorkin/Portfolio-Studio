@@ -1,0 +1,22 @@
+{
+  "name": "portfolio-studio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "release": "node build.mjs && node -e \"require('fs').copyFileSync('dist/index.html','index.html')\""
+  },
+  "dependencies": {
+    "esbuild": "^0.28.2",
+    "jszip": "^3.10.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "author": "Roy Borkin <royborkin@gmail.com>",
+  "license": "SEE LICENSE IN LICENSE",
+  "description": "Portfolio Studio: build animated one-screen portfolio websites. Copyright (c) 2026 Roy Borkin. All rights reserved."
+}
